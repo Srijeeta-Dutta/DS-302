@@ -51,7 +51,7 @@ char pop()
         return val;
     }
 }
-int operator(char ch)
+int operatorr(char ch)
 {
     if (ch == '+' || ch == '-' || ch == '/' || ch == '*')
     {
@@ -77,7 +77,7 @@ int precedence(char ch)
 }
 char *infixtoPostfix(char *exp)
 {
-   	stack_pointer=(stack*)malloc(sizeof(stack));
+    stack_pointer=(stack*)malloc(sizeof(stack));
     stack_pointer->top = -1;
     stack_pointer->size = 20;
     stack_pointer->arr = (char *)malloc(stack_pointer->size * sizeof(char));
@@ -85,9 +85,9 @@ char *infixtoPostfix(char *exp)
     int i = 0, j = 0;
     while (exp[i] != '\0')
     {
-        if (!operator(exp[i]))
+        if (!operatorr(exp[i]))
         {
-            postfix[j] = exp[i];
+            postfix[i] = exp[i];
             i++;
             j++;
         }
@@ -105,7 +105,7 @@ char *infixtoPostfix(char *exp)
             }
         }
     }
-    while (!isEmpty(stack_pointer))
+    while (!isEmpty())
     {
         postfix[j]=pop();
         j++;
@@ -113,12 +113,10 @@ char *infixtoPostfix(char *exp)
     postfix[j]='\0';
     return postfix;
 }
-
 int main()
 {
-    char* exp = (char*)malloc(sizeof(char)*20);
+    char *exp;
     printf("Please add your expression\n");
-    // gets(exp);
-	scanf("%s", exp);
+    scanf("%s", &exp);
     printf("The postfix is %s",infixtoPostfix(exp));
 }
