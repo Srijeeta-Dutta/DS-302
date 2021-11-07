@@ -54,7 +54,6 @@ void display()
         printf("%d->",ptr->info);
         ptr=ptr->next;
     }
-    
 }
 int main()
 {
@@ -84,5 +83,4 @@ int main()
             break;
         }
     }
-    
 }
