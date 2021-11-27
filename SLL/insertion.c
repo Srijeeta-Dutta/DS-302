@@ -90,6 +90,7 @@ int insertionAtIndex()
     while (i!=index-1)
     {
         ptr=ptr->next_link;
+        i++;
     }
     newNode->next_link=ptr->next_link;
     ptr->next_link=newNode;
